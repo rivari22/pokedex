@@ -40,14 +40,3 @@ export const COLORS: any = {
         background: "#dedcdc"
     }
 }
-
-// grass = #49D0B0, chip= #60E1C8
-// poison
-// fire = #FC6C6Dm chip = FD8482
-// water = #76BEFE, chip = 8ED0FF
-// bug
-// flying
-// normal
-// electric = #FFD76F, chip = FFE580
-// ground: '724D25'
-// fairy

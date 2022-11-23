@@ -1,13 +1,16 @@
-import React from "react";
-import { useRouter } from "next/router";
+import React, { useContext } from "react";
 import { Box, Typography } from "@mui/material";
 import CompareArrowsIcon from "@mui/icons-material/CompareArrows";
-import FilterAltIcon from "@mui/icons-material/FilterAlt";
+import FilterAltOutlinedIcon from "@mui/icons-material/FilterAltOutlined";
+import { FilterListContext } from "../../../context/FilterListContext";
 
-type HeaderProps = {};
-
-const Header: React.FC<HeaderProps> = (props) => {
-  const router = useRouter();
+const Header: React.FC = () => {
+  const {
+    filter,
+    setIsOpenFilter,
+    setIsCompareActive,
+    handleResetComparation,
+  } = useContext(FilterListContext);
 
   return (
     <header
@@ -25,12 +28,41 @@ const Header: React.FC<HeaderProps> = (props) => {
         gap: "12px",
       }}
     >
-      <Box display="flex" alignItems="center" gap={"2px"}>
+      <Box
+        display="flex"
+        alignItems="center"
+        gap={"2px"}
+        style={{ cursor: "pointer" }}
+        onClick={() => {
+          handleResetComparation();
+          setIsCompareActive((prev) => !prev);
+        }}
+      >
         <Typography>Compare</Typography>
         <CompareArrowsIcon />
       </Box>
-      <Box>
-        <FilterAltIcon />
+      <Box
+        position="relative"
+        onClick={() => setIsOpenFilter(true)}
+        style={{ cursor: "pointer" }}
+      >
+        <Box
+          style={{
+            borderRadius: "50%",
+            border: "1px solid black",
+            padding: "0px 2px",
+            right: -2,
+            top: -2,
+            zIndex: 101,
+            position: "absolute",
+            backgroundColor: "white",
+          }}
+        >
+          <Typography fontSize={"8px"}>
+            {filter.generations.length + filter.types.length}
+          </Typography>
+        </Box>
+        <FilterAltOutlinedIcon />
       </Box>
     </header>
   );

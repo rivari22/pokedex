@@ -2,19 +2,17 @@ import React from "react";
 import { GetServerSideProps, NextPage } from "next";
 import clientGraphql from "../../config/graphqlSetup";
 import { GET_DETAIL_POKEMON } from "../../modules/Detail/graphql/queries";
-import Header from "../../modules/Detail/containers/Header";
 import ContentDetail from "../../modules/Detail/containers/ContentDetail";
 import TabDetailContext from "../../context/TabDetailContext";
 import BottomNavigation from "../../modules/Detail/containers/BottomNavigation";
 import { COLORS } from "../../styles/color";
+import Header from "../../components/Header/Header";
 
 type DetailPokemonProps = {
   data: any;
 };
 
 const DetailPokemon: NextPage<DetailPokemonProps> = ({ data }) => {
-  console.log(data, "data props");
-
   return (
     <div
       style={{
@@ -24,6 +22,7 @@ const DetailPokemon: NextPage<DetailPokemonProps> = ({ data }) => {
         height: "100vh",
         width: "100%",
         position: "relative",
+        paddingBottom: "40px"
       }}
     >
       <Header />

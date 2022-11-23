@@ -1,6 +1,7 @@
 import "../styles/globals.css";
 import type { AppProps } from "next/app";
 import { ApolloProvider } from "@apollo/client";
+
 import clientGraphql from "../config/graphqlSetup";
 import GlobalStyles from '@mui/material/GlobalStyles';
 
