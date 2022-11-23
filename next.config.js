@@ -5,6 +5,9 @@ const nextConfig = {
   env: {
     URL_GRAPHQL: process.env.URL_GRAPHQL,
   },
+  images: {
+    domains: ["raw.githubusercontent.com"],
+  },
 };
 
 module.exports = nextConfig;
